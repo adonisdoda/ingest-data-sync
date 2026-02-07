@@ -41,8 +41,12 @@ export async function ingestData(): Promise<void> {
     }
 
     console.log(`total_events_ingested:${countInserted}`);
-  } catch (error) {
-    console.error("ingestion_failed:", error);
+  } catch (error: any) {
+    console.error("===== INGESTION FAILED =====");
+    console.error("Error message:", error?.message);
+    console.error("Error details:", error);
+    console.error("Stack trace:", error?.stack);
+    console.error("===========================");
     throw error;
   } finally {
     await closePool();
@@ -59,7 +63,10 @@ async function processQueue() {
 
   bulkInsertEvents(batch)
     .catch((err) => {
-      console.error("bulk insert error", err);
+      console.error("===== BULK INSERT ERROR =====");
+      console.error("Error:", err);
+      console.error("Stack:", err?.stack);
+      console.error("============================");
     })
     .finally(() => {
       activeWorkers--;

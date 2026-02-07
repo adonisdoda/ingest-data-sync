@@ -43,15 +43,20 @@ export async function fetchEvents(cursor?: string): Promise<ApiResponse> {
       method: "GET",
       headers: {
         "X-API-Key": API_KEY,
-        "X-Cache-Enabled": "true",
+        // "X-Cache-Enabled": "true",
         "Content-Type": "application/json",
       },
     });
 
     if (!response.ok) {
+      const errorBody = await response.text();
+      console.error(`API Error - Status: ${response.status} ${response.statusText}`);
+      console.error(`Response Body:`, errorBody);
+      console.error(`Attempt: ${attempt}/${maxRetries}`);
+      
       if (attempt < maxRetries) {
         const waitTime = 11000;
-
+        console.log(`Retrying in ${waitTime/1000} seconds...`);
         await new Promise((resolve) => setTimeout(resolve, waitTime));
         continue;
       }
@@ -59,5 +64,6 @@ export async function fetchEvents(cursor?: string): Promise<ApiResponse> {
     return await response.json();
   }
 
+  console.error("All retry attempts failed!");
   return Promise.reject(new Error("retry_failed"));
 }
