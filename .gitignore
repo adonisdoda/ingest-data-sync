@@ -1,0 +1,37 @@
+# Dependencies
+.DS_Store
+node_modules
+
+# Build output
+dist/
+
+# Test coverage
+coverage/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS files
+Thumbs.db
+.DS_Store
+
+# IDE
+.idea/
+
+# Temporary files
+*.tmp
+*.temp
+
+# Generated files
+event_ids.txt
+
+# Docker volumes
+assignment_postgres_data/

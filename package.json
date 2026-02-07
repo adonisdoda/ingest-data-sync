@@ -1,0 +1,41 @@
+{
+  "name": "data-sync-ingestion",
+  "version": "1.0.0",
+  "description": "DataSync API Ingestion System",
+  "main": "packages/ingestion.ts",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/packages/ingestion.js",
+    "dev": "cross-env DB_HOST=localhost DB_PORT=5434 DB_NAME=postgres DB_USER=postgres DB_PASSWORD=postgres ts-node packages/ingestion.ts",
+    "dev:local": "set DB_HOST=localhost&& set DB_PORT=5434&& set DB_NAME=postgres&& set DB_USER=postgres&& set DB_PASSWORD=postgres&& ts-node packages/ingestion.ts",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "type-check": "tsc --noEmit"
+  },
+  "keywords": [
+    "data-ingestion",
+    "typescript",
+    "api"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "node-fetch": "^2.7.0",
+    "pg": "^8.18.0",
+    "@types/node": "^20.11.0",
+    "@types/node-fetch": "^2.6.11",
+    "@types/pg": "^8.16.0",
+    "cross-env": "^7.0.3",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.1.111.0",
+    "@types/node-fetch": "^2.6.11",
+    "@types/pg": "^8.16.0",
+    "cross-env": "^7.0.3",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}
