@@ -4,7 +4,7 @@ import fetch from "node-fetch";
 const API_BASE_URL =
   "http://datasync-dev-alb-101078500.us-east-1.elb.amazonaws.com/api/v1";
 
-const API_KEY = "ds_be6f40b6af0443561eb641a1dc37338d";
+const API_KEY = "ds_086cfa60c0c2a3df470fe85084780c07";
 
 export interface Event {
   id: string;
