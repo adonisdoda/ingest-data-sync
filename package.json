@@ -1,7 +1,7 @@
 {
   "name": "data-sync-ingestion",
   "version": "1.0.0",
-  "description": "DataSync API Ingestion System",
+  "description": "DataSync API Ingestion Challenge",
   "main": "packages/ingestion.ts",
   "scripts": {
     "build": "tsc",
@@ -13,12 +13,6 @@
     "test:coverage": "jest --coverage",
     "type-check": "tsc --noEmit"
   },
-  "keywords": [
-    "data-ingestion",
-    "typescript",
-    "api"
-  ],
-  "author": "",
   "license": "ISC",
   "dependencies": {
     "node-fetch": "^2.7.0",
