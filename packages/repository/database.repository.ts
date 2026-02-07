@@ -46,7 +46,7 @@ export async function bulkInsertEvents(events: Event[]): Promise<void> {
           event.userId,
           event.sessionId,
           event.properties ? JSON.stringify(event.properties) : null,
-          event.session ? JSON.stringify(event.session) : null,
+          event.sessionId ? JSON.stringify(event.sessionId) : null,
           typeof event.timestamp === "string"
             ? new Date(event.timestamp).getTime()
             : event.timestamp,
