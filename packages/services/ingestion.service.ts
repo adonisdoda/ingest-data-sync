@@ -15,7 +15,7 @@ export async function ingestData(): Promise<void> {
 
   try {
     while (hasMore) {
-      while (queue.length >= MAX_QUEUE_SIZE) {
+      while (queue?.length >= MAX_QUEUE_SIZE) {
         await new Promise((r) => setTimeout(r, 50));
       }
 
@@ -27,11 +27,11 @@ export async function ingestData(): Promise<void> {
       const loopEndTime = Date.now();
       const loopDuration = ((loopEndTime - lastLoopTime) / 1000).toFixed(2);
 
-      countInserted += data.length;
+      countInserted += data?.length;
 
       console.log(
-        `fetched_events:${data.length}`,
-        `queue_size:${queue.length}`,
+        `fetched_events:${data?.length}`,
+        `queue_size:${queue?.length}`,
         `loop_duration_seconds:${loopDuration}`,
       );
 
