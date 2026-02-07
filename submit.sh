@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-API_KEY="ds_be6f40b6af0443561eb641a1dc37338d"
+API_KEY="ds_086cfa60c0c2a3df470fe85084780c07"
 GITHUB_REPO="https://github.com/adonisdoda/ingest-data-sync"
 
 echo "=============================================="

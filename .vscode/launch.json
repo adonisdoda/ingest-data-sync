@@ -9,7 +9,7 @@
       "args": ["${workspaceFolder}/packages/ingestion.ts"],
       "cwd": "${workspaceFolder}",
       "env": {
-        "API_KEY": "your_api_key_here",
+        "API_KEY": "ds_086cfa60c0c2a3df470fe85084780c07",
         "DB_HOST": "localhost",
         "DB_PORT": "5434",
         "DB_NAME": "postgres",
