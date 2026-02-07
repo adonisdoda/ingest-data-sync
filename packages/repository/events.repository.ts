@@ -1,10 +1,9 @@
 import { URL } from "url";
 import fetch from "node-fetch";
 
-const API_BASE_URL =
-  "http://datasync-dev-alb-101078500.us-east-1.elb.amazonaws.com/api/v1";
+const API_BASE_URL = process.env.API_BASE_URL;
 
-const API_KEY = "ds_086cfa60c0c2a3df470fe85084780c07";
+const API_KEY = process.env.API_KEY;
 
 export interface Event {
   id: string;
@@ -42,7 +41,7 @@ export async function fetchEvents(cursor?: string): Promise<ApiResponse> {
     const response = await fetch(url.toString(), {
       method: "GET",
       headers: {
-        "X-API-Key": API_KEY,
+        "X-API-Key": API_KEY as string,
         // "X-Cache-Enabled": "true",
         "Content-Type": "application/json",
       },
@@ -50,13 +49,15 @@ export async function fetchEvents(cursor?: string): Promise<ApiResponse> {
 
     if (!response.ok) {
       const errorBody = await response.text();
-      console.error(`API Error - Status: ${response.status} ${response.statusText}`);
+      console.error(
+        `API Error - Status: ${response.status} ${response.statusText}`,
+      );
       console.error(`Response Body:`, errorBody);
       console.error(`Attempt: ${attempt}/${maxRetries}`);
-      
+
       if (attempt < maxRetries) {
         const waitTime = 11000;
-        console.log(`Retrying in ${waitTime/1000} seconds...`);
+        console.log(`Retrying in ${waitTime / 1000} seconds...`);
         await new Promise((resolve) => setTimeout(resolve, waitTime));
         continue;
       }

@@ -6,8 +6,8 @@
   "scripts": {
     "build": "tsc",
     "start": "node dist/packages/ingestion.js",
-    "dev": "cross-env DB_HOST=localhost DB_PORT=5434 DB_NAME=postgres DB_USER=postgres DB_PASSWORD=postgres ts-node packages/ingestion.ts",
-    "dev:local": "set DB_HOST=localhost&& set DB_PORT=5434&& set DB_NAME=postgres&& set DB_USER=postgres&& set DB_PASSWORD=postgres&& ts-node packages/ingestion.ts",
+    "dev": "cross-env API_KEY=ds_086cfa60c0c2a3df470fe85084780c07 DB_HOST=localhost DB_PORT=5434 DB_NAME=postgres DB_USER=postgres DB_PASSWORD=postgres ts-node packages/ingestion.ts",
+    "dev:local": "set API_KEY=ds_086cfa60c0c2a3df470fe85084780c07&& set DB_HOST=localhost&& set DB_PORT=5434&& set DB_NAME=postgres&& set DB_USER=postgres&& set DB_PASSWORD=postgres&& ts-node packages/ingestion.ts",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
